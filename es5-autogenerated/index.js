@@ -150,6 +150,8 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
       PrerendererInstance.destroy();
       done();
     }).catch(function (err) {
+      console.error(err);
+      compilation.errors.push(err);
       PrerendererInstance.destroy();
       var msg = '[prerender-spa-plugin] Unable to prerender all routes!';
       console.error(msg);
